@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border: none; 
+  background: none;
+  cursor: pointer;  
+}
+
+:root {
+  --primary: #E9C46A;
+  --background: #000000;
+  --text: #FFFFFF;
+  --sans: ui-sans-serif;
+  --cal-sans: "Cal Sans", sans-serif;
+
+  background: var(--background);
+  font-family: var(--cal-sans);
+  font-weight: 400;   
+  color: var(--text);
+  width: 100%;
+  height: 100%;
+
+}
+
+body {    
+  width: 100%;
+}
