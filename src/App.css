@@ -1,4 +1,4 @@
 #content {
-  max-width: 56rem;
+  width: min(var(--content-max-width), calc(100% - (var(--content-gutter) * 2)));
   margin: 0 auto;
 }

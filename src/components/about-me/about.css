@@ -1,40 +1,72 @@
 #about {
-    height: calc(100vh - var(--header-height));
-    padding-top: 13rem;
+    --about-top-space: 13rem;
+    --about-text-measure: 60%;
+    --about-button-padding-y: 0.75rem;
+    --about-button-padding-x: 1.5rem;
+
+    min-height: calc(100svh - var(--header-height));
+    padding-top: var(--about-top-space);
+}
+
+@media (max-width: 1200px) {
+    #about {
+        --about-top-space: 11rem;
+    }
+}
+
+@media (max-width: 992px) {
+    #about {
+        --about-top-space: 9.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #about {
+        --about-top-space: 8rem;
+        --about-text-measure: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    #about {
+        --about-top-space: 6.5rem;
+        --about-button-padding-y: 0.65rem;
+        --about-button-padding-x: 1.2rem;
+    }
 }
 
 #introduction {
-    font-size: 1.5rem;
+    font-size: var(--h3);
     color: var(--primary);
     margin-bottom: 1rem;
-    margin-left: 0.5rem;
+    margin-left: var(--title-left-margin);
 }
 
 #name {
-    font-size: 5rem;
+    font-size: var(--h1);
     font-weight: 400;
     margin-bottom: 0;
 }
 
 #title {
-    font-size: 3rem;
+    font-size: var(--h2);
     font-weight: 400;
     color: var(--primary);
     margin-bottom: 2rem;
 }
 
 #description {
-    font-size: 1.25rem;
+    font-size: var(--body-lg);
     margin-bottom: 2rem;
-    width: 60%;
+    max-inline-size: min(65ch, var(--about-text-measure));
 }
 
 #contact-btn {
     border: 1px solid var(--primary);
     color: var(--primary);
     border-radius: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    font-size: 1.25rem;
+    padding: var(--about-button-padding-y) var(--about-button-padding-x);
+    font-size: var(--button-text);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     &:hover {

@@ -1,3 +1,56 @@
+#experience {
+    --job-gap: 0.5rem;
+    --duration-gap: 1rem;
+    --duration-right-offset: 2rem;
+    --duration-line-width: 5rem;
+    --duration-line-height: 2px;
+    --duration-dot-size: 12px;
+    --experience-card-gap: 0.8rem;
+    --experience-card-padding: 1.5rem;
+    --experience-card-radius: 15px;
+    --experience-connector-length: 2.5rem;
+    --experience-connector-dot-size: 12px;
+}
+
+@media (max-width: 1200px) {
+    #experience {
+        --duration-right-offset: 1.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    #experience {
+        --duration-right-offset: 1rem;
+        --duration-line-width: 3rem;
+        --duration-dot-size: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    #experience {
+        --duration-line-width: 3rem;
+        --experience-card-padding: 1.25rem;
+        --experience-connector-length: 0;
+        --experience-connector-dot-size: 0;
+    }
+
+    .experience-body::after,
+    .experience-body::before {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    #experience {
+        --duration-gap: 0.6rem;
+        --duration-right-offset: 0.5rem;
+        --duration-line-width: 2.25rem;
+        --experience-card-padding: 1rem;
+        --experience-card-gap: 0.5rem;
+
+    }
+}
+
 #experience-title {
     font-size: var(--h2);
     margin-bottom: var(--title-margin);
@@ -7,7 +60,7 @@
 .job-card {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--job-gap);
 }
 
 .duration {
@@ -16,15 +69,15 @@
     align-items: center;
     flex-direction: row;
     flex-wrap: nowrap;
-    gap: 1rem;
-    margin-right: 2rem;
+    gap: var(--duration-gap);
+    margin-right: var(--duration-right-offset);
 }
 
 .duration-line {
     position: relative;
     display: inline-block;
-    width: 4rem;
-    height: 3px;
+    width: var(--duration-line-width);
+    height: var(--duration-line-height);
     background: var(--primary);
 
     &::after,
@@ -32,8 +85,8 @@
         content: "";
         position: absolute;
         top: 50%;
-        width: 12px;
-        height: 12px;
+        width: var(--duration-dot-size);
+        height: var(--duration-dot-size);
         border: 2px solid var(--primary);
         background: var(--primary);
         border-radius: 50%;
@@ -62,10 +115,10 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: var(--experience-card-gap);
     border: 2px solid var(--primary);
-    border-radius: 15px;
-    padding: 1.5rem;
+    border-radius: var(--experience-card-radius);
+    padding: var(--experience-card-padding);
 }
 
 .experience-body::before {
@@ -73,7 +126,7 @@
     position: absolute;
     top: 50%;
     left: 0;
-    width: 2.5rem;
+    width: var(--experience-connector-length);
     border-top: 3px dashed var(--primary);
     transform: translate(-100%, -50%);
 }
@@ -82,11 +135,17 @@
     content: "";
     position: absolute;
     top: 50%;
-    left: -2.5rem;
-    width: 12px;
-    height: 12px;
+    left: calc(var(--experience-connector-length) * -1);
+    width: var(--experience-connector-dot-size);
+    height: var(--experience-connector-dot-size);
     border: 3px solid var(--primary);
     background: var(--primary);
     border-radius: 50%;
     transform: translate(-50%, -50%);
+}
+
+@media (max-width: 1200px) {
+    #experience {
+        padding-left: calc(var(--experience-connector-length) + (var(--experience-connector-dot-size) / 2) + 0.25rem);
+    }
 }
