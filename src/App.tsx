@@ -1,15 +1,17 @@
 import './App.css';
 import Header from './components/header/header';
-import AboutMe from './components/about-me/about';
-import Projects from './components/projects/projects';
+import AboutMeSection from './components/about-me/about';
+import ExperienceSection from './components/experience/experience';
 
 export default function App() {
     return (
         <>
             <Header />
             <div id="content">
-                <AboutMe />
-                <Projects />
+                <main>
+                    <AboutMeSection />
+                </main>
+                <ExperienceSection />
             </div>
         </>
     )
