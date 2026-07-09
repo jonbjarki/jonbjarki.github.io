@@ -1,11 +1,26 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
+  "plugins": [
+    "react",
+    "typescript",
+    "oxc"
+  ],
+  "options": {
+    "typeAware": true,
+    "typeCheck": true
+  },
   "rules": {
     "no-alert": "error",
     "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }],
+    "react/only-export-components": [
+      "warn",
+      {
+        "allowConstantExport": true
+      }
+    ],
     "react/jsx-key": "warn",
     "react/no-children-prop": "warn",
+    "typescript/no-explicit-any": "warn",
+    "typescript/no-unused-vars": "warn"
   }
 }
