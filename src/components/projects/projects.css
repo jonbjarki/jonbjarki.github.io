@@ -1,0 +1,129 @@
+#projects {
+  --item-gap: 0.5rem;
+  --project-card-gap: 0.8rem;
+  --project-card-padding: 1.5rem;
+  --project-card-radius: 15px;
+  --project-connector-length: 2.5rem;
+  --project-connector-dot-size: 12px;
+}
+
+@media (max-width: 1200px) {
+  #projects {
+  }
+}
+
+@media (max-width: 992px) {
+  #projects {
+  }
+}
+
+@media (max-width: 768px) {
+  #projects {
+    --project-card-padding: 1.25rem;
+    --project-connector-length: 0;
+    --project-connector-dot-size: 0;
+  }
+
+  .projects-body::after,
+  .projects-body::before {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  #projects {
+    --project-card-padding: 1rem;
+    --project-card-gap: 0.5rem;
+  }
+}
+
+#projects-title {
+  font-size: var(--h2);
+  margin-bottom: var(--title-margin);
+  margin-left: var(--title-left-margin);
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--item-gap);
+
+  hr {
+    border-color: var(--primary);
+  }
+}
+
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--project-card-gap);
+  border: 2px solid var(--primary);
+  border-radius: var(--project-card-radius);
+  padding: var(--project-card-padding);
+  margin-bottom: var(--section-margin);
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: var(--project-connector-length);
+  border-top: 3px dashed var(--primary);
+  transform: translate(-100%, -50%);
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(var(--project-connector-length) * -1);
+  width: var(--project-connector-dot-size);
+  height: var(--project-connector-dot-size);
+  border: 3px solid var(--primary);
+  background: var(--primary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.project-link {
+  justify-self: end;
+  align-self: end;
+}
+
+.project-btn {
+  border: 1px solid var(--primary);
+  border-radius: 0.5rem;
+  color: var(--primary);
+  background: transparent;
+  padding: 0.5rem 1rem;
+
+  &:hover {
+    background: rgb(from var(--primary) r g b / 0.3);
+  }
+}
+
+.technology-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.technology-item {
+  font-size: var(--body-sm);
+  color: rgb(from var(--text) r g b / 0.7);
+  background: var(--text);
+  color: var(--background);
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+}
+
+@media (max-width: 1200px) {
+  #project {
+    padding-left: calc(
+      var(--project-connector-length) + (var(--project-connector-dot-size) / 2) + 0.25rem
+    );
+  }
+}

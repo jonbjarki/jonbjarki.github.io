@@ -1,11 +1,19 @@
 {
-    "experience": [
-        {
-            "title": "Web Developer - HuguR",
-            "company": "Reykjavík University",
-            "description": "Worked on a research project  in conjunction with the psychology department developing a website that worked to enable students to take psychology courses in a digital format. Was responsible for designing and developing the frontend.  Made an in-depth user requirement analysis, detailed prototype and worked closely with psychologists and users to ensure requirements were being met",
-            "startDate": "2023-06-01",
-            "endDate": "2023-08-01"
-        }
-    ]
+  "experience": [
+    {
+      "title": "Web Developer - HuguR",
+      "company": "Reykjavík University",
+      "description": "Worked on a research project  in conjunction with the psychology department developing a website that worked to enable students to take psychology courses in a digital format. Was responsible for designing and developing the frontend.  Made an in-depth user requirement analysis, detailed prototype and worked closely with psychologists and users to ensure requirements were being met",
+      "startDate": "2023-06-01",
+      "endDate": "2023-08-01"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Book Club Social Platform (ReadTogether)",
+      "description": "A social book platform where users can search for books, save favourites into custom reading lists, and share those lists with friends. It has a modern web app on the front end, built with Next.js and React, and a .NET-based backend API that handles users, authentication, and core app features. The platform stores data in PostgreSQL and connects to Google Books to power book search and discovery.",
+      "technologies": ["Next.js", "Auth.js", ".NET Core", ".NET Identity", "PostgreSQL", "Docker"],
+      "link": "https://github.com/jonbjarki/ReadGood"
+    }
+  ]
 }

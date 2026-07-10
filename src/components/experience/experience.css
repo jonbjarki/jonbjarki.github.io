@@ -1,151 +1,144 @@
 #experience {
-    --job-gap: 0.5rem;
-    --duration-gap: 1rem;
-    --duration-right-offset: 2rem;
-    --duration-line-width: 5rem;
-    --duration-line-height: 2px;
-    --duration-dot-size: 12px;
-    --experience-card-gap: 0.8rem;
-    --experience-card-padding: 1.5rem;
-    --experience-card-radius: 15px;
-    --experience-connector-length: 2.5rem;
-    --experience-connector-dot-size: 12px;
+  --job-gap: 0.5rem;
+  --duration-gap: 1rem;
+  --duration-right-offset: 2rem;
+  --duration-line-width: 5rem;
+  --duration-line-height: 2px;
+  --duration-dot-size: 12px;
+  --experience-card-gap: 0.8rem;
+  --experience-card-padding: 1.5rem;
+  --experience-card-radius: 15px;
+  --experience-connector-length: 2.5rem;
+  --experience-connector-dot-size: 12px;
 }
 
 @media (max-width: 1200px) {
-    #experience {
-        --duration-right-offset: 1.5rem;
-    }
+  #experience {
+    --duration-right-offset: 1.5rem;
+  }
 }
 
 @media (max-width: 992px) {
-    #experience {
-        --duration-right-offset: 1rem;
-        --duration-line-width: 3rem;
-        --duration-dot-size: 8px;
-    }
+  #experience {
+    --duration-right-offset: 1rem;
+    --duration-line-width: 3rem;
+    --duration-dot-size: 8px;
+  }
 }
 
 @media (max-width: 768px) {
-    #experience {
-        --duration-line-width: 3rem;
-        --experience-card-padding: 1.25rem;
-        --experience-connector-length: 0;
-        --experience-connector-dot-size: 0;
-    }
+  #experience {
+    --duration-line-width: 3rem;
+    --experience-card-padding: 1.25rem;
+    --experience-connector-length: 0;
+    --experience-connector-dot-size: 0;
+  }
 
-    .experience-body::after,
-    .experience-body::before {
-        display: none;
-    }
+  .experience-body::after,
+  .experience-body::before {
+    display: none;
+  }
 }
 
 @media (max-width: 576px) {
-    #experience {
-        --duration-gap: 0.6rem;
-        --duration-right-offset: 0.5rem;
-        --duration-line-width: 2.25rem;
-        --experience-card-padding: 1rem;
-        --experience-card-gap: 0.5rem;
-
-    }
+  #experience {
+    --duration-gap: 0.6rem;
+    --duration-right-offset: 0.5rem;
+    --duration-line-width: 2.25rem;
+    --experience-card-padding: 1rem;
+    --experience-card-gap: 0.5rem;
+  }
 }
 
 #experience-title {
-    font-size: var(--h2);
-    margin-bottom: var(--title-margin);
-    margin-left: var(--title-left-margin);
+  font-size: var(--h2);
+  margin-bottom: var(--title-margin);
+  margin-left: var(--title-left-margin);
 }
 
 .job-card {
-    display: flex;
-    flex-direction: column;
-    gap: var(--job-gap);
+  display: flex;
+  flex-direction: column;
+  gap: var(--job-gap);
 }
 
 .duration {
-    align-self: flex-end;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: var(--duration-gap);
-    margin-right: var(--duration-right-offset);
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: var(--duration-gap);
+  margin-right: var(--duration-right-offset);
 }
 
 .duration-line {
-    position: relative;
-    display: inline-block;
-    width: var(--duration-line-width);
-    height: var(--duration-line-height);
-    background: var(--primary);
+  position: relative;
+  display: inline-block;
+  width: var(--duration-line-width);
+  height: var(--duration-line-height);
+  background: var(--primary);
 
-    &::after,
-    &::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        width: var(--duration-dot-size);
-        height: var(--duration-dot-size);
-        border: 2px solid var(--primary);
-        background: var(--primary);
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    &::after {
-        left: 100%;
-    }
-}
-
-.title {
-    color: var(--primary);
-    font-size: var(--h3);
-}
-
-.company {
-    color: rgb(from var(--text) r g b / 0.7);
-}
-
-.description {
-    font-size: var(--body);
-}
-
-.experience-body {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: var(--experience-card-gap);
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: var(--duration-dot-size);
+    height: var(--duration-dot-size);
     border: 2px solid var(--primary);
-    border-radius: var(--experience-card-radius);
-    padding: var(--experience-card-padding);
-}
-
-.experience-body::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: var(--experience-connector-length);
-    border-top: 3px dashed var(--primary);
-    transform: translate(-100%, -50%);
-}
-
-.experience-body::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: calc(var(--experience-connector-length) * -1);
-    width: var(--experience-connector-dot-size);
-    height: var(--experience-connector-dot-size);
-    border: 3px solid var(--primary);
     background: var(--primary);
     border-radius: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  &::after {
+    left: 100%;
+  }
+}
+
+.experience-body .company {
+  color: rgb(from var(--text) r g b / 0.7);
+}
+
+.experience-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--experience-card-gap);
+  border: 2px solid var(--primary);
+  border-radius: var(--experience-card-radius);
+  padding: var(--experience-card-padding);
+  margin-bottom: var(--section-margin);
+}
+
+.experience-body::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: var(--experience-connector-length);
+  border-top: 3px dashed var(--primary);
+  transform: translate(-100%, -50%);
+}
+
+.experience-body::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(var(--experience-connector-length) * -1);
+  width: var(--experience-connector-dot-size);
+  height: var(--experience-connector-dot-size);
+  border: 3px solid var(--primary);
+  background: var(--primary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @media (max-width: 1200px) {
-    #experience {
-        padding-left: calc(var(--experience-connector-length) + (var(--experience-connector-dot-size) / 2) + 0.25rem);
-    }
+  #experience {
+    padding-left: calc(
+      var(--experience-connector-length) + (var(--experience-connector-dot-size) / 2) + 0.25rem
+    );
+  }
 }
