@@ -1,13 +1,17 @@
 {
   "name": "jonbjarki.github.io",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "preview": "vite preview",
+    "prepare": "husky",
+    "pre-commit": "lint-staged"
   },
   "dependencies": {
     "react": "^19.2.7",
@@ -23,9 +27,18 @@
     "@vitejs/plugin-react": "^6.0.3",
     "babel-plugin-react-compiler": "^1.0.0",
     "gh-pages": "^6.3.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
+    "oxfmt": "^0.58.0",
     "oxlint": "^1.71.0",
     "oxlint-tsgolint": "^0.24.0",
     "typescript": "~6.0.2",
     "vite": "^8.1.1"
+  },
+  "lint-staged": {
+    "*": [
+      "oxfmt --no-error-on-unmatched-pattern",
+      "pnpm lint"
+    ]
   }
 }
