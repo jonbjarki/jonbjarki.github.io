@@ -14,19 +14,19 @@ export default function TechnologyList(props: { technologies: string[] }) {
   }
 
   return (
-    <div className="technology-list-container">
-      <ul className="technology-list">
-        {technologyList.map((tech, ind) => (
-          <li className="technology-item" key={ind}>
-            {tech}
-          </li>
-        ))}
-      </ul>
-      {props.technologies.length > TECHNOLOGY_THRESHOLD && (
-        <button className={expanded ? "show-more expanded" : "show-more"} onClick={handleShowMore}>
-          <IoIosArrowForward />
-        </button>
-      )}
-    </div>
+    <button onClick={handleShowMore} className="technology-list-btn">
+      <div className="technology-list-container">
+        <ul className="technology-list">
+          {technologyList.map((tech, ind) => (
+            <li className="technology-item" key={ind}>
+              {tech}
+            </li>
+          ))}
+        </ul>
+        {props.technologies.length > TECHNOLOGY_THRESHOLD && (
+          <IoIosArrowForward className={expanded ? "show-more expanded" : "show-more"} />
+        )}
+      </div>
+    </button>
   );
 }

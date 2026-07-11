@@ -8,16 +8,6 @@
   --project-connector-dot-size: 12px;
 }
 
-@media (max-width: 1200px) {
-  #projects {
-  }
-}
-
-@media (max-width: 992px) {
-  #projects {
-  }
-}
-
 @media (max-width: 768px) {
   #projects {
     --project-card-padding: 1.25rem;
@@ -95,9 +85,6 @@
 .project-link {
   justify-self: end;
   align-self: end;
-}
-
-.project-btn {
   border: 1px solid var(--primary);
   border-radius: 0.5rem;
   color: var(--primary);
