@@ -9,8 +9,10 @@ export default function ExperienceSection() {
 
   return (
     <section id="experience" aria-labelledby="experience-title">
-      <h2 id="experience-title">My Experience</h2>
-      <ol>
+      <h2 id="experience-title" className="section-title">
+        My Experience
+      </h2>
+      <ol id="experience-list">
         {experience.map((item, ind) => (
           <ExperienceItem key={ind} {...item} />
         ))}

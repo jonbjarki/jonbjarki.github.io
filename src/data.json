@@ -3,7 +3,7 @@
     {
       "title": "Web Developer - HuguR",
       "company": "Reykjavík University",
-      "description": "Worked on a research project  in conjunction with the psychology department developing a website that worked to enable students to take psychology courses in a digital format. Was responsible for designing and developing the frontend.  Made an in-depth user requirement analysis, detailed prototype and worked closely with psychologists and users to ensure requirements were being met",
+      "description": "Worked on a research project in conjunction with the psychology department developing a website that worked to enable students to take psychology courses in a digital format. Was responsible for designing and developing the frontend.  Made an in-depth user requirement analysis, detailed prototype and worked closely with psychologists and users to ensure requirements were being met",
       "startDate": "2023-06-01",
       "endDate": "2023-08-01"
     }
@@ -12,8 +12,26 @@
     {
       "title": "Book Club Social Platform (ReadTogether)",
       "description": "A social book platform where users can search for books, save favourites into custom reading lists, and share those lists with friends. It has a modern web app on the front end, built with Next.js and React, and a .NET-based backend API that handles users, authentication, and core app features. The platform stores data in PostgreSQL and connects to Google Books to power book search and discovery.",
-      "technologies": ["Next.js", "Auth.js", ".NET Core", ".NET Identity", "PostgreSQL", "Docker"],
+      "technologies": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Auth.js",
+        ".NET Core",
+        ".NET Identity",
+        "xUnit",
+        "PostgreSQL",
+        "CI/CD",
+        "Github Actions",
+        "Docker"
+      ],
       "link": "https://github.com/jonbjarki/ReadGood"
+    },
+    {
+      "title": "Lyric Guessing Game (GuessTheLyric)",
+      "description": "Guess the Lyric is a music trivia web app that challenges players to identify songs from lyric snippets, with a Daily mode that gives everyone the same song each day and an Infinite mode for unlimited rounds. It uses Next.js, React, and TypeScript to deliver a responsive frontend experience, while Prisma and PostgreSQL power the backend data layer for songs, artists, and generated game sessions, making it a polished project that combines engaging gameplay with real-world full-stack architecture.",
+      "technologies": ["Next.js", "React", "TypeScript", "Prisma", "PostgreSQL"],
+      "link": "https://guess-the-lyric.vercel.app/"
     }
   ]
 }

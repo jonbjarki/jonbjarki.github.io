@@ -121,6 +121,12 @@ body {
   padding-bottom: 4rem;
 }
 
+#content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-margin);
+}
+
 ol,
 ul {
   list-style: none;
@@ -147,4 +153,10 @@ button {
 
 .card-description {
   font-size: var(--body);
+}
+
+.section-title {
+  font-size: var(--h2);
+  margin-bottom: var(--title-margin);
+  margin-left: var(--title-left-margin);
 }

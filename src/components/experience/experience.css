@@ -1,5 +1,6 @@
 #experience {
   --job-gap: 0.5rem;
+  --experience-gap: 5rem;
   --duration-gap: 1rem;
   --duration-right-offset: 2rem;
   --duration-line-width: 5rem;
@@ -50,10 +51,10 @@
   }
 }
 
-#experience-title {
-  font-size: var(--h2);
-  margin-bottom: var(--title-margin);
-  margin-left: var(--title-left-margin);
+#experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--experience-gap);
 }
 
 .job-card {
@@ -109,7 +110,6 @@
   border: 2px solid var(--primary);
   border-radius: var(--experience-card-radius);
   padding: var(--experience-card-padding);
-  margin-bottom: var(--section-margin);
 }
 
 .experience-body::before {

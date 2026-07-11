@@ -1,3 +1,5 @@
+import TechnologyList from "./technology-list";
+
 export type ProjectItemProps = {
   title: string;
   description: string;
@@ -15,13 +17,7 @@ export default function ProjectItem(props: ProjectItemProps) {
           <button className="project-btn">View Site</button>
         </a>
         <hr />
-        <ul className="technology-list">
-          {props.technologies.map((tech, ind) => (
-            <li className="technology-item" key={ind}>
-              {tech}
-            </li>
-          ))}
-        </ul>
+        <TechnologyList technologies={props.technologies} />
       </article>
     </li>
   );

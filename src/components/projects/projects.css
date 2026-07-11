@@ -1,5 +1,6 @@
 #projects {
   --item-gap: 0.5rem;
+  --project-gap: 5rem;
   --project-card-gap: 0.8rem;
   --project-card-padding: 1.5rem;
   --project-card-radius: 15px;
@@ -37,6 +38,12 @@
   }
 }
 
+#projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--project-gap);
+}
+
 #projects-title {
   font-size: var(--h2);
   margin-bottom: var(--title-margin);
@@ -61,7 +68,6 @@
   border: 2px solid var(--primary);
   border-radius: var(--project-card-radius);
   padding: var(--project-card-padding);
-  margin-bottom: var(--section-margin);
 }
 
 .project-card::before {
@@ -83,8 +89,7 @@
   height: var(--project-connector-dot-size);
   border: 3px solid var(--primary);
   background: var(--primary);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .project-link {
@@ -120,8 +125,25 @@
   border-radius: 5px;
 }
 
+.technology-list-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.2rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.show-more {
+  height: fit-content;
+}
+
+.expanded {
+  transform: rotate(90deg);
+}
+
 @media (max-width: 1200px) {
-  #project {
+  #projects {
     padding-left: calc(
       var(--project-connector-length) + (var(--project-connector-dot-size) / 2) + 0.25rem
     );
