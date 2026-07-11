@@ -102,11 +102,9 @@ button {
     --section-margin: 8rem;
     --title-margin: 2.5rem;
   }
-}
 
-/* New sections should consume these tokens first: type, spacing, and container. */
-html {
   font-size: var(--body);
+  scroll-behavior: smooth;
 }
 
 body {

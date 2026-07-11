@@ -5,7 +5,9 @@
   --about-button-padding-x: 1.5rem;
 
   min-height: calc(100svh - var(--header-height));
-  padding-top: var(--about-top-space);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @media (max-width: 1200px) {

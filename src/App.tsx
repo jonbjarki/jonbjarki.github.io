@@ -3,6 +3,7 @@ import Header from "./components/header/header";
 import AboutMeSection from "./components/about-me/about";
 import ExperienceSection from "./components/experience/experience";
 import ProjectsSection from "./components/projects/projects";
+import ContactForm from "./components/contact/contact";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         </main>
         <ExperienceSection />
         <ProjectsSection />
+        <ContactForm />
       </div>
     </>
   );
