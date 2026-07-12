@@ -17,6 +17,7 @@ button {
   --background: #000000;
   --accent: #1e1e1e;
   --border: #444444;
+  --error: #ff3333;
   --text: #ffffff;
   --sans: ui-sans-serif;
   --cal-sans: "Cal Sans", sans-serif;

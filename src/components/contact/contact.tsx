@@ -4,13 +4,15 @@ import "./contact.css";
 
 export default function ContactForm() {
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState(false);
+  const [captchaError, setCaptchaError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const tokenRef = useRef("");
   const captchaRef = useRef<HCaptcha>(null);
 
   const onHCaptchaChange = (token: string) => {
     tokenRef.current = token;
+    setCaptchaError("");
   };
 
   const onLoad = () => {
@@ -21,27 +23,32 @@ export default function ContactForm() {
     event.preventDefault();
 
     if (tokenRef.current === "") {
-      setError("Please fill out the captcha");
+      setCaptchaError("Please fill out the captcha");
       return;
     }
 
     const formData = new FormData(event.currentTarget);
     formData.append("access_key", "ff7f365f-0348-447c-ac32-d3377344f27f"); // Safe public key
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
 
-    if (!response.ok) {
-      console.error("Error occurred while submitting form");
-      setError("An error occurred while submitting the form. Please try again later.");
-      return;
+      if (!response.ok) {
+        console.error("Error occurred while submitting form");
+        setError("An error occurred while submitting the form. Please try again later.");
+        return;
+      }
+
+      setError("");
+      setSuccess("Your message was sent successfully!");
+      captchaRef.current?.resetCaptcha();
+    } catch (error) {
+      console.error("Unexpected error occurred while submitting form", error);
+      setError("An unexpected error occurred while submitting the form. Please try again later.");
     }
-
-    setError("");
-    setSuccess(true);
-    captchaRef.current?.resetCaptcha();
   };
 
   return (
@@ -73,20 +80,22 @@ export default function ContactForm() {
             required
           ></textarea>
         </div>
-
-        <HCaptcha
-          ref={captchaRef}
-          sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
-          reCaptchaCompat={false}
-          onVerify={onHCaptchaChange}
-          onLoad={onLoad}
-          theme="dark"
-        />
+        <div className="captcha-container">
+          <HCaptcha
+            ref={captchaRef}
+            sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+            reCaptchaCompat={false}
+            onVerify={onHCaptchaChange}
+            onLoad={onLoad}
+            theme="dark"
+          />
+          {captchaError && <p className="captcha-error">{captchaError}</p>}
+        </div>
         <button type="submit" className="submit-btn">
           Submit
         </button>
-        <p className="success-message">{success ? "Your message was sent successfully!" : ""}</p>
-        <p className="error-message">{error}</p>
+        {success && <p className="success-message">{success}</p>}
+        {error && <p className="error-message">{error}</p>}
       </form>
     </section>
   );
