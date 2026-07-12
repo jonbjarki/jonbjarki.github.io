@@ -3,7 +3,9 @@ import HCaptcha from "@hcaptcha/react-hcaptcha";
 import "./contact.css";
 
 export default function ContactForm() {
-  const [result, setResult] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+
   const tokenRef = useRef("");
   const captchaRef = useRef<HCaptcha>(null);
 
@@ -19,7 +21,7 @@ export default function ContactForm() {
     event.preventDefault();
 
     if (tokenRef.current === "") {
-      setResult("Please fill out the captcha");
+      setError("Please fill out the captcha");
       return;
     }
 
@@ -32,26 +34,45 @@ export default function ContactForm() {
     });
 
     if (!response.ok) {
-      console.error("Error occurred when submitting form");
+      console.error("Error occurred while submitting form");
+      setError("An error occurred while submitting the form. Please try again later.");
+      return;
     }
 
-    const data = await response.json();
-    console.log("Form Response", data);
-    setResult(data.success ? "Success!" : "Error");
+    setError("");
+    setSuccess(true);
+    captchaRef.current?.resetCaptcha();
   };
 
   return (
     <section aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact Me</h2>
+      <h2 id="contact-title" className="section-title">
+        Contact Me
+      </h2>
       <form onSubmit={onSubmit} id="contact">
-        <label htmlFor="input-name">Name</label>
-        <input type="text" name="name" id="input-name" required />
-        <label htmlFor="input-email">Email</label>
-
-        <input type="email" name="email" id="input-email" required />
-        <textarea name="message" id="message" required></textarea>
-        <button type="submit">Submit</button>
-        <p>{result}</p>
+        <div className="form-group">
+          <label htmlFor="input-name">Name</label>
+          <input type="text" name="name" id="input-name" placeholder="Your name..." required />
+        </div>
+        <div className="form-group">
+          <label htmlFor="input-email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="input-email"
+            placeholder="email@example.com"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="message">Message</label>
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Write your message here..."
+            required
+          ></textarea>
+        </div>
 
         <HCaptcha
           ref={captchaRef}
@@ -61,6 +82,11 @@ export default function ContactForm() {
           onLoad={onLoad}
           theme="dark"
         />
+        <button type="submit" className="submit-btn">
+          Submit
+        </button>
+        <p className="success-message">{success ? "Your message was sent successfully!" : ""}</p>
+        <p className="error-message">{error}</p>
       </form>
     </section>
   );
