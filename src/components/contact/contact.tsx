@@ -15,10 +15,6 @@ export default function ContactForm() {
     setCaptchaError("");
   };
 
-  const onLoad = () => {
-    captchaRef.current?.execute();
-  };
-
   const onSubmit = async (event: SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -86,7 +82,6 @@ export default function ContactForm() {
             sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
             reCaptchaCompat={false}
             onVerify={onHCaptchaChange}
-            onLoad={onLoad}
             theme="dark"
           />
           {captchaError && <p className="captcha-error">{captchaError}</p>}
