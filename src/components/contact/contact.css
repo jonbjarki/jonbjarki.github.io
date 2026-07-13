@@ -26,26 +26,6 @@
   grid-column: 1;
 }
 
-@media (max-width: 576px) {
-  #contact {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(5, auto);
-  }
-
-  #email-group {
-    grid-row: 2;
-  }
-
-  #message-group {
-    grid-row: 3;
-    grid-column: 1;
-  }
-
-  .submit-btn {
-    grid-column: 1 !important;
-  }
-}
-
 .form-group {
   display: flex;
   flex-direction: column;
@@ -77,18 +57,50 @@
   font-family: inherit;
 }
 
+#submit-group {
+  grid-row: 4;
+  grid-column: 1 / span 2;
+}
+
 .submit-btn {
+  width: 100%;
   background: transparent;
   border: 1px solid var(--primary);
   border-radius: 4px;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  grid-row: 4;
-  grid-column: 1 / span 2;
+
+  &:hover {
+    background: rgb(from var(--primary) r g b / 0.3);
+  }
 }
 
 .captcha-error {
   color: var(--error);
   font-size: var(--body-sm);
   margin-top: 0.5rem;
+}
+
+@media (max-width: 576px) {
+  #contact {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, auto);
+  }
+
+  #email-group {
+    grid-row: 2;
+  }
+
+  #message-group {
+    grid-row: 3;
+    grid-column: 1;
+  }
+
+  #submit-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    grid-column: 1;
+  }
 }

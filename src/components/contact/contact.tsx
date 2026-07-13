@@ -1,14 +1,15 @@
 import { useRef, useState, type SyntheticEvent } from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import "./contact.css";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function ContactForm() {
   const [error, setError] = useState("");
   const [captchaError, setCaptchaError] = useState("");
-  const [success, setSuccess] = useState("");
 
   const tokenRef = useRef("");
   const captchaRef = useRef<HCaptcha>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const onHCaptchaChange = (token: string) => {
     tokenRef.current = token;
@@ -39,8 +40,9 @@ export default function ContactForm() {
       }
 
       setError("");
-      setSuccess("Your message was sent successfully!");
+      toast.success("Your message was sent successfully!");
       captchaRef.current?.resetCaptcha();
+      formRef.current?.reset();
     } catch (error) {
       console.error("Unexpected error occurred while submitting form", error);
       setError("An unexpected error occurred while submitting the form. Please try again later.");
@@ -49,10 +51,11 @@ export default function ContactForm() {
 
   return (
     <section aria-labelledby="contact-title">
+      <ToastContainer theme="dark" />
       <h2 id="contact-title" className="section-title">
         Contact Me
       </h2>
-      <form onSubmit={onSubmit} id="contact">
+      <form onSubmit={onSubmit} id="contact" ref={formRef}>
         <div className="form-group" id="name-group">
           <label htmlFor="input-name">Name</label>
           <input type="text" name="name" id="input-name" placeholder="Your name..." required />
@@ -86,11 +89,12 @@ export default function ContactForm() {
           />
           {captchaError && <p className="captcha-error">{captchaError}</p>}
         </div>
-        <button type="submit" className="submit-btn">
-          Submit
-        </button>
-        {success && <p className="success-message">{success}</p>}
-        {error && <p className="error-message">{error}</p>}
+        <div id="submit-group">
+          <button type="submit" className="submit-btn">
+            Submit
+          </button>
+          {error && <p className="error-message">{error}</p>}
+        </div>
       </form>
     </section>
   );
