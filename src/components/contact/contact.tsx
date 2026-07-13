@@ -53,11 +53,11 @@ export default function ContactForm() {
         Contact Me
       </h2>
       <form onSubmit={onSubmit} id="contact">
-        <div className="form-group">
+        <div className="form-group" id="name-group">
           <label htmlFor="input-name">Name</label>
           <input type="text" name="name" id="input-name" placeholder="Your name..." required />
         </div>
-        <div className="form-group">
+        <div className="form-group" id="email-group">
           <label htmlFor="input-email">Email</label>
           <input
             type="email"
@@ -67,7 +67,7 @@ export default function ContactForm() {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="form-group" id="message-group">
           <label htmlFor="message">Message</label>
           <textarea
             name="message"
@@ -76,7 +76,7 @@ export default function ContactForm() {
             required
           ></textarea>
         </div>
-        <div className="captcha-container">
+        <div id="captcha-group">
           <HCaptcha
             ref={captchaRef}
             sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"

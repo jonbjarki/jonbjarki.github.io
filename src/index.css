@@ -35,9 +35,10 @@ button {
   --button-text: 1.25rem;
 
   /* Layout scale */
-  --content-max-width: 56rem;
+  --content-max-width: 50rem;
   --content-gutter: 0rem;
   --header-height: 4em;
+  --content-width: min(var(--content-max-width), calc(100% - (var(--content-gutter) * 2)));
 
   --section-margin: 15rem;
   --title-margin: 6rem;

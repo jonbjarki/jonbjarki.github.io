@@ -1,12 +1,49 @@
 #contact {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, auto);
   gap: 1.2rem;
   max-width: 1100px;
   border: 1px solid var(--primary);
   border-radius: 8px;
   padding: 1.2rem;
-  margin: 0 auto;
+  margin: 0 1rem;
+}
+
+#name-group {
+  grid-row: 1;
+}
+
+#email-group {
+  grid-row: 1;
+}
+
+#message-group {
+  grid-column: 1 / span 2;
+}
+
+#captcha-group {
+  grid-column: 1;
+}
+
+@media (max-width: 576px) {
+  #contact {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, auto);
+  }
+
+  #email-group {
+    grid-row: 2;
+  }
+
+  #message-group {
+    grid-row: 3;
+    grid-column: 1;
+  }
+
+  .submit-btn {
+    grid-column: 1 !important;
+  }
 }
 
 .form-group {
@@ -46,6 +83,8 @@
   border-radius: 4px;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  grid-row: 4;
+  grid-column: 1 / span 2;
 }
 
 .captcha-error {

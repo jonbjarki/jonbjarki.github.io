@@ -3,11 +3,22 @@ import "./header.css";
 export default function Header() {
   return (
     <header>
-      <nav>
-        {/* <a href="#introduction">Home</a>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a> */}
+      <div id="skip-link">
+        <a href="#about">Skip to Main Content</a>
+      </div>
+      <nav aria-label="Main navigation">
+        <a className="nav-item" href="#about">
+          Home
+        </a>
+        <a className="nav-item" href="#experience">
+          Experience
+        </a>
+        <a className="nav-item" href="#projects">
+          Projects
+        </a>
+        <a className="nav-item" href="#contact">
+          Contact
+        </a>
       </nav>
     </header>
   );
